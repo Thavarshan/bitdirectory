@@ -132,8 +132,8 @@ function App () {
 
             {repositories.length > 0 ? <div className='h-100vh overflow-x-hidden leading-normal text-gray-600 bg-white antialiased'>
                 <div className='shadow h-12 bg-white flex flex-row items-center px-8'>
-                    <a href='#' className='inline-block flex-shrink-0'>
-                        <img className='w-28' src='https://www.vectorlogo.zone/logos/bitbucket/bitbucket-official.svg' alt='BitBucket' />
+                    <a href='/' className='inline-block flex-shrink-0'>
+                        <span className='text-blue-500 text-lg font-bold'>Bitdirectory</span>
                     </a>
                 </div>
 
