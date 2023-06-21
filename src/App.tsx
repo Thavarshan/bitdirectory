@@ -146,7 +146,7 @@ function App () {
                 </Dialog>
             </Transition>
 
-            {repositories.length > 0 ? <div className='h-100vh overflow-x-hidden leading-normal text-gray-600 bg-white antialiased'>
+            <div className='h-100vh overflow-x-hidden leading-normal text-gray-600 bg-white antialiased'>
                 <div className='shadow h-12 bg-white flex flex-row items-center px-8'>
                     <a href='/' className='inline-block flex-shrink-0'>
                         <span className='text-blue-500 text-lg font-bold'>Bitdirectory</span>
@@ -188,7 +188,7 @@ function App () {
                         <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
                             <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
                                 <div className='overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg'>
-                                    <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-700'>
+                                    {repositories.length > 0 ? <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-700'>
                                         <thead className='bg-gray-50 dark:bg-gray-800'>
                                             <tr>
                                                 <th scope='col' className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'>
@@ -273,13 +273,13 @@ function App () {
                                                 </tr>
                                             ))}
                                         </tbody>
-                                    </table>
+                                    </table> : <div className='px-8 py-6'><span className='text-gray-500 text-sm'>No repositories found</span></div>}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
-            </div> : <div className='px-8 py-6'><span className='text-gray-500 text-sm'>No repositories found</span></div>}
+            </div>
         </>
     );
 }
