@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
+import Fuse from 'fuse.js';
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, useState } from 'react';
 import axios from 'axios';
@@ -11,6 +11,22 @@ function App () {
     const [user, setUser] = useState('');
     const [repositories, setRepositories] = useState([]);
     const [isOpen, setIsOpen] = useState(true);
+
+    const searchItem = (query: string) => {
+        if (!query) {
+            return;
+        }
+
+        const fuse = new Fuse(repositories, {
+            keys: ['name', 'full_name']
+        });
+
+        const results = fuse
+            .search(query.toLowerCase())
+            .map((result) => result.item);
+
+        setRepositories(results as any);
+    };
 
     const closeModal = () => setIsOpen(false);
     const openModal = () => setIsOpen(true);
@@ -65,7 +81,7 @@ function App () {
                                         onSubmit={(values, { setSubmitting, resetForm }) => {
                                             setUser(values.name);
 
-                                            axios.get(`https://api.bitbucket.org/2.0/repositories/${values.name}`, {
+                                            axios.get(`https://api.bitbucket.org/2.0/repositories/${values.name}?pagelen=100`, {
                                                 headers: {
                                                     'Accept': 'application/json',
                                                     'Content-Type': 'application/json'
@@ -153,7 +169,7 @@ function App () {
                             <div className='relative flex items-center w-96 h-12 rounded-lg border border-gray-200 bg-gray-50 overflow-hidden'>
                                 <div className='grid place-items-center h-full w-12 text-gray-300'>
                                     <svg xmlns='http://www.w3.org/2000/svg' className='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
-                                        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' />
+                                        <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z' />
                                     </svg>
                                 </div>
 
@@ -161,7 +177,9 @@ function App () {
                                     className='peer form-input h-full w-full outline-none text-sm text-gray-700 bg-gray-50 pr-2 border-transparent focus:ring-0 focus:border-transparent dark:bg-gray-800 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:placeholder-gray-400 dark:focus:bg-gray-700 dark:focus:text-gray-300 dark:focus:ring-0 dark:focus:border-transparent'
                                     type='search'
                                     id='search'
-                                    placeholder='Search something..' />
+                                    name='search'
+                                    onChange={(e) => searchItem(e.target.value)}
+                                    placeholder='Search for repository...' />
                             </div>
                         </div>
                     </div>
