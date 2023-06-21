@@ -45,10 +45,10 @@ To build the production-ready optimized version of the app, use the following co
 npm run build
 ```
 
-# Contributing
+## Contributing
 
 Contributions are welcome! If you find any issues or would like to propose improvements, please submit a pull request or open an issue in this repository.
 
-# License
+## License
 
 This project is licensed under the MIT License.
