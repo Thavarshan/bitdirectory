@@ -2,6 +2,8 @@
 
 This is a basic setup guide for setting up Bitdirectory.
 
+![Bitdirectory](./public/images/screenshot.png)
+
 ## Prerequisites
 
 Before starting, ensure that you have the following software installed on your machine:
