@@ -100,7 +100,7 @@ function App () {
                                         }) => (
                                             <form onSubmit={handleSubmit}>
                                                 <div>
-                                                    {error && <div className='h-14 bg-gradient-to-r from-cyan-500 to-blue-500'>{error}</div>}
+                                                    {error && <div className='rounded-lg px-4 py-2 text-white bg-red-500 mb-4'>{error}</div>}
 
                                                     <div>
                                                         <input
