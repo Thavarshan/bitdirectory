@@ -157,12 +157,12 @@ function App () {
                     <div className='flex flex-row items-center justify-between'>
                         <div>
                             <div className='flex items-center gap-x-3'>
-                                <h2 className='text-lg font-medium text-gray-800 dark:text-white'>Repositories</h2>
+                                <h2 className='text-lg font-medium text-gray-800'>Repositories</h2>
 
-                                <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full dark:bg-gray-800 dark:text-blue-400'>{repositories.length} projects</span>
+                                <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full'>{repositories.length} projects</span>
                             </div>
 
-                            <p className='mt-1 text-sm text-gray-500 dark:text-gray-300'>List of all repositories belonging to <span className='font-bold'>{user}</span>.</p>
+                            <p className='mt-1 text-sm text-gray-500'>List of all repositories belonging to <span className='font-bold'>{user}</span>.</p>
                         </div>
 
                         <div>
@@ -174,7 +174,7 @@ function App () {
                                 </div>
 
                                 <input
-                                    className='peer form-input h-full w-full outline-none text-sm text-gray-700 bg-gray-50 pr-2 border-transparent focus:ring-0 focus:border-transparent dark:bg-gray-800 dark:text-gray-300 dark:placeholder-gray-500 dark:focus:placeholder-gray-400 dark:focus:bg-gray-700 dark:focus:text-gray-300 dark:focus:ring-0 dark:focus:border-transparent'
+                                    className='peer form-input h-full w-full outline-none text-sm text-gray-700 bg-gray-50 pr-2 border-transparent focus:ring-0 focus:border-transparent'
                                     type='search'
                                     id='search'
                                     name='search'
@@ -187,27 +187,27 @@ function App () {
                     <div className='flex flex-col mt-6'>
                         <div className='-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8'>
                             <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
-                                <div className='overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg'>
-                                    {repositories.length > 0 ? <table className='min-w-full divide-y divide-gray-200 dark:divide-gray-700'>
-                                        <thead className='bg-gray-50 dark:bg-gray-800'>
+                                <div className='overflow-hidden border border-gray-200 md:rounded-lg'>
+                                    {repositories.length > 0 ? <table className='min-w-full divide-y divide-gray-200'>
+                                        <thead className='bg-gray-50'>
                                             <tr>
-                                                <th scope='col' className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+                                                <th scope='col' className='py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500'>
                                                     Repository
                                                 </th>
 
-                                                <th scope='col' className='px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+                                                <th scope='col' className='px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
                                                     Description
                                                 </th>
 
-                                                <th scope='col' className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+                                                <th scope='col' className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
                                                     Language
                                                 </th>
 
-                                                <th scope='col' className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+                                                <th scope='col' className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
                                                     Visibility
                                                 </th>
 
-                                                <th scope='col' className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400'>
+                                                <th scope='col' className='px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500'>
                                                     Updated
                                                 </th>
 
@@ -217,12 +217,12 @@ function App () {
                                             </tr>
                                         </thead>
 
-                                        <tbody className='bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900'>
+                                        <tbody className='bg-white divide-y divide-gray-200'>
                                             {repositories.map((repository: any) => (
                                                 <tr key={repository.uuid}>
                                                     <td className='px-4 py-4 font-medium whitespace-nowrap'>
                                                         <div>
-                                                            <h2 className='font-medium text-gray-800 dark:text-white'>{repository.name}</h2>
+                                                            <h2 className='font-medium text-gray-800'>{repository.name}</h2>
 
                                                             <div>
                                                                 <a target='_blank' href={repository.links.html.href} className='text-sm text-blue-500 transition-colors duration-200 hover:text-blue-600 focus:outline-none'>
@@ -237,13 +237,13 @@ function App () {
                                                     </td>
 
                                                     <td className='px-12 py-4 text-sm font-medium whitespace-nowrap'>
-                                                        <p className='text-gray-500 dark:text-gray-400 max-w-xs whitespace-normal'>
+                                                        <p className='text-gray-500 max-w-xs whitespace-normal'>
                                                             {repository.description}
                                                         </p>
                                                     </td>
 
                                                     <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                                                        <div className='inline px-3 py-1 text-sm font-normal rounded-full text-gray-800 gap-x-2 bg-gray-100 dark:bg-gray-800'>
+                                                        <div className='inline px-3 py-1 text-sm font-normal rounded-full text-gray-800 gap-x-2 bg-gray-100'>
                                                             {repository.language}
                                                         </div>
                                                     </td>
@@ -263,7 +263,7 @@ function App () {
                                                     </td>
 
                                                     <td className='px-4 py-4 text-sm whitespace-nowrap'>
-                                                        <button onClick={() => { navigator.clipboard.writeText(repository.links.clone[0].href); }} className='px-1.5 py-1.5 text-gray-500 transition-colors duration-200 rounded-lg dark:text-gray-300 hover:bg-gray-100'>
+                                                        <button onClick={() => { navigator.clipboard.writeText(repository.links.clone[0].href); }} className='px-1.5 py-1.5 text-gray-500 transition-colors duration-200 rounded-lg hover:bg-gray-100'>
                                                             <svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' strokeWidth={1.5} stroke='currentColor' className='w-5 h-5'>
                                                                 <path strokeLinecap='round' strokeLinejoin='round' d='M8.25 7.5V6.108c0-1.135.845-2.098 1.976-2.192.373-.03.748-.057 1.123-.08M15.75 18H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08M15.75 18.75v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5A3.375 3.375 0 006.375 7.5H5.25m11.9-3.664A2.251 2.251 0 0015 2.25h-1.5a2.251 2.251 0 00-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 00-9-9z' />
                                                             </svg>
